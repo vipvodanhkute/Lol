@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>LoL</title>
+  <link rel="stylesheet" href="css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+</head>
+<body>
+	<div class="row">
+		<div class="col-md-9">
+			<nav class="navbar navbar-expand-md navbar-dark">
+				<a href="#" class="navbar-brand">TỔ ĐỘI</a>
+				<ul class="navbar-nav">
+					<li class="nav-item">
+						<a href="#" class="nav-link">TRANG CHỦ</a>
+					</li>
+					<li class="nav-item">
+						<a href="#" class="nav-link">HỒ SƠ</a>
+					</li>
+					<li class="nav-item">
+						<a href="#" class="nav-link">BỘ SƯU TẬP</a>
+					</li>
+				</ul>
+				<ul class="navbar-nav ml-auto">
+					<li class="nav-item">
+						<a href="#" class="nav-link"><i class="fa fa-plus"></i></a>
+					</li>
+					<li class="nav-item">
+						<a href="#" class="nav-link"><i class="fa fa-cart-plus"></i></a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="navbar navbar-expand-md navbar-dark">
+			<ul class="navbar-nav">
+			<li class="nav-item active">
+				<a href="index.html" class="nav-link">TƯỚNG</a>
+			</li>
+			<li class="nav-item">
+				<a href="#" class="nav-link">TRANG PHỤC</a>
+			</li>
+			<li class="nav-item">
+				<a href="#" class="nav-link">BIỂU CẢM</a>
+			</li>
+			<li class="nav-item">
+				<a href="#" class="nav-link">NGỌC BỔ TRỢ</a>
+			</li>
+			<li class="nav-item">
+				<a href="#" class="nav-link">PHÉP BỔ TRỢ</a>
+			</li>
+			<li class="nav-item">
+				<a href="#" class="nav-link">BỘ TRANG BỊ</a>
+			</li>
+			<li class="nav-item">
+				<a href="#" class="nav-link">BIỂU TƯỢNG</a>
+			</li>
+			<li class="nav-item">
+				<a href="#" class="nav-link">MẪU MẮT</a>
+			</li>
+			<li class="nav-item">
+				<a href="#" class="nav-link">ĐA SẮC</a>
+			</li>
+		</ul>
+		</nav>
+		<div class="row">
+			<div class="col-md-3">
+				<div class="d-flex justify-content-center">
+					<img src="img/vangdoan.png" width="200px" height="200px" style="margin:50px" />
+				</div>
+				<div class="container text-light">
+					<form>
+					<div class="form-group">
+							<input type="text" class="form-control" placeholder="Tìm">
+					</div>
+					<div class="form-check ml-3">
+						<input type="checkbox" class="form-check-input" id="championOwned">
+						<label class="form-check-label">ĐÃ SỞ HỮU</label>
+					</div>
+					<div class="form-group">
+						<select class="form-control">
+							<option>Ngày Ra Mắt <i class="fas fa-arrow-down"></i></option>
+							<option>Ngày Ra Mắt <i class="fas fa-arrow-up"></i></option>
+						</select>
+					</div>
+					<div id="choose">
+					<div class="form-check ml-3">
+						 <input type="radio" class="form-check-input" id="" value="Assassin" name="ch">
+						<label class="form-check-label">Sát thủ</label>
+					</div>
+					<div class="form-check ml-3">
+     					 <input type="radio" class="form-check-input" id="" value="Fighter" name="ch">
+     					 <label class="form-check-label">Đấu sĩ</label>
+  				    </div>  
+  				   <div class="form-check ml-3">
+     					  <input type="radio" class="form-check-input" id="" value="Mage" name="ch">
+     					 <label class="form-check-label">Pháp sư</label>
+    				</div> 
+    				<div class="form-check ml-3">
+     					  <input type="radio" class="form-check-input" id="" value="Marksman" name="ch">
+     					 <label class="form-check-label">Xạ thủ</label>
+    				</div> 
+    				<div class="form-check ml-3">
+     					  <input type="radio" class="form-check-input" id="" value="Support" name="ch">
+     					 <label class="form-check-label">Hổ trợ</label>
+    				</div> 
+    				<div class="form-check ml-3">
+     					  <input type="radio" class="form-check-input" id="" value="Tank" name="ch">
+     					 <label class="form-check-label">Đỡ đòn</label>
+    				</div> 
+					<div class="form-check ml-3">
+     					  <input type="radio" class="form-check-input" id="" value="dhg" name="ch">
+     					 <label class="form-check-label">Đang hạ giá</label>
+    				</div>
+    				</div> 
+				</form>
+				</div>
+			</div>
+			<div class="col-md-9 scroll">
+					<div class="row" id="championList"></div>
+			</div>
+		</div>
+		</div>
+		<div class="col-md-3">
+			<div class="row">
+			</div>
+		</div>
+	</div>
+	<div class="modal" id="modalChampion">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="body">
+					<div class="row">
+						<div class="col-4">
+							<div class="card">
+								<div class="card-body">
+									<img src="" alt="">
+								</div>
+							</div>
+						</div>
+						<div class="col-8">
+							<div class="card">
+								<div class="card-body">
+									<a href="#" class="close" data-dismiss="modal">&times;</a>
+							<h1></h1>
+							<p>Thêm tướng vào hàng ngủ của bạn</p>
+							<a href="#">Tìm hiểu thêm</a>
+							<p>*Không đủ RP</p>
+								</div>
+							</div>
+							<div class="card-footer text-center">
+								<button id="add" class="btn btn-dark" data-dismiss="modal"></button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+<script src="js/jquery.min.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.min.js"></script>	
+<script src="db.js"></script>
+<script src="api.js"></script>
+<script src="ui.js"></script>
+<script src="app.js"></script>	
+</body>
+</html>

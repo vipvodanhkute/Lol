@@ -1,0 +1,22 @@
+body {
+  background: url("../img/bg-default.jpg") no-repeat;
+  background-size: cover; }
+
+.dark-overlay:hover {
+  opacity: 0.7; }
+
+.scroll {
+  overflow: scroll;
+  height: 700px; }
+
+.close {
+  margin-top: -50px;
+  margin-right: -50px; }
+
+#skins-img img {
+  width: 100px;
+  height: 100px; }
+
+.spellInfo:hover {
+  opacity: 0.8;
+  cursor: pointer; }
