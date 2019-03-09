@@ -30,7 +30,7 @@ class UI{
 									div.innerHTML=`
 									<div class="my-2">
 										<div class="dark-overlay get-champion" data-id="${x.id}" data-toggle="modal" data-target="#modalChampion">
-											<img src="../img/champion/${x.image}" class="img-thubnail img-fluid"/>
+											<img src="../img/champion/${x.image.full}" class="img-thubnail img-fluid"/>
 											<p class="text-center font-weight-bold">${x.id}</p>
 										</div>	
 									</div>		
@@ -63,30 +63,6 @@ class UI{
 					})	
 	})
 		}
-		displayChampionSearch1(name,selector){
-		this.clear(selector);
-		api.getAPIChampion()
-			.then(data=>{
-				const champions=Object.values(data.champion.data);
-				const championsFormLocal=db.getDBformStorage();
-				const championsFilterOur=champions.filter(champion=>championsFormLocal.map(x=>x.id).indexOf(champion.id)>=0);
-				const championsFilter=championsFilterOur.filter(champ=>champ.id.toLowerCase().indexOf(name)>=0);
-				championsFilter.forEach(champion=>{
-								const div=document.createElement('div');
-									div.classList.add('col-2')
-									div.innerHTML=`
-									<div class="my-2">
-										<div class="dark-overlay get-champion" data-id="${champion.id}" data-toggle="modal" data-target="#modalChampion">
-											<img src="../img/champion/${champion.image.full}" class="img-thubnail img-fluid"/>
-											<p class="text-center font-weight-bold">${champion.name}</p>
-										</div>	
-									</div>		
-						`;
-					document.querySelector(`#${selector}`).appendChild(div);
-					})
-	})
-		}
-	
 	displayChampionTags(tag){
 		championsList.innerHTML='';
 		 api.getAPIChampion()
@@ -138,7 +114,7 @@ class UI{
 					div.innerHTML=`
 									<div class="my-2">
 										<div class="dark-overlay get-champion" data-id="${champion.id}" data-toggle="modal" data-target="#modalChampion">
-											<img src="../img/champion/${champion.image}" class="img-thubnail img-fluid"/>
+											<img src="../img/champion/${champion.image.full}" class="img-thubnail img-fluid"/>
 											<p class="text-center font-weight-bold">${champion.id}</p>
 										</div>	
 									</div>		
@@ -164,7 +140,7 @@ class UI{
 									<div class="my-2">
 										<div class="dark-overlay get-champion" data-id="${champion.id}" data-toggle="modal" data-target="#modalChampion">
 											<img src="../img/champion/${champion.image.full}" class="img-thubnail img-fluid"/>
-											<p class="text-center font-weight-bold">${champion.name}</p>
+											<p class="text-center font-weight-bold">${champion.id}</p>
 										</div>	
 									</div>		
 						`;
@@ -260,4 +236,19 @@ class UI{
 
 			})
 		}
+			displayChampionsFilter(champions,selector){
+				champions.forEach(champion=>{
+								const div=document.createElement('div');
+									div.classList.add('col-2')
+									div.innerHTML=`
+									<div class="my-2">
+										<div class="dark-overlay get-champion" data-id="${champion.id}" data-toggle="modal" data-target="#modalChampion">
+											<img src="../img/champion/${champion.image.full}" class="img-thubnail img-fluid"/>
+											<p class="text-center font-weight-bold">${champion.id}</p>
+										</div>	
+									</div>		
+						`;
+					document.querySelector(`#${selector}`).appendChild(div);				
+						})
+			}
 }

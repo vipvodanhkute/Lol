@@ -15,16 +15,16 @@ const api = new API(),
 eventListener();
 function eventListener(){
 	if(selectTags){
-		selectTags.addEventListener('change',selectTag)
+		selectTags.addEventListener('change',filterChampions)
 	}
 	if(selectChamps){
-		selectChamps.addEventListener('change',selectChamp)
+		selectChamps.addEventListener('change',filterChampions)
 	}
 	if(search){
 		search.addEventListener('keydown',searchChamp);
 	}
 	if(search1){
-		search1.addEventListener('keydown',searchChamp1);
+		search1.addEventListener('keydown',filterChampions);
 	}
 	if(championsList){
 		championsList.addEventListener('click',getInfo);
@@ -42,7 +42,7 @@ function eventListener(){
 		checkbox.addEventListener('click',displayChampionsOur)
 	}
 	if(choose){
-		choose.addEventListener('click',filterChamp)
+		choose.addEventListener('click',searchChamp)
 	}
 	
 }
@@ -62,7 +62,8 @@ function buyChampion(e){
 					const championInfo={
 						id:champion.id,
 						blurb:champion.blurb,
-						image:champion.image.full,
+						image:{
+							full:champion.image.full},
 						title:champion.title,
 						tags:[champion.tags[0],champion.tags[1]],
 						info:{
@@ -129,11 +130,6 @@ function searchChamp(){
 	ui.displayChampionSearch(name);
 	console.log(name);
 }
-function searchChamp1(){
-	const name=search1.value;
-	ui.displayChampionSearch1(name,'championsOur');
-	console.log(name);
-}
 function selectTag(){
 	ui.displaySelectTag(this.value);
 }
@@ -151,5 +147,68 @@ function selectChamp(){
 			ui.clear('championsOur');
 			ui.displayChampionAll('championsOur');
 			break;
+	}
+}
+function filterChampions(){
+	if(selectTags.value!==''){
+	switch(selectChamps.value){
+		case "1":
+			ui.clear('championsOur');
+			api.getAPIChampion()
+			.then(data=>{
+				const champions=Object.values(data.champion.data);
+				const championsFormLocal=db.getDBformStorage();
+				const championsFilter=champions.filter(championAPI=>
+					championsFormLocal.map(championDB=>
+						championDB.id
+					).indexOf(championAPI.id)<0
+				);
+				ui.displayChampionsFilter((championsFilter.filter(x=>x.tags.map(tag=>tag).indexOf(selectTags.value)>=0)).filter(y=>y.id.toLowerCase().indexOf(search1.value)>=0),'championsOur');
+			})
+			break;
+		case "2":
+			ui.clear('championsOur');
+			const champions=db.getDBformStorage();
+			ui.displayChampionsFilter((champions.filter(x=>x.tags.map(tag=>tag).indexOf(selectTags.value)>=0)).filter(y=>y.id.toLowerCase().indexOf(search1.value)>=0),'championsOur');
+			break;
+		default:
+			ui.clear('championsOur');
+			api.getAPIChampion()
+				.then(data=>{
+					let champions=Object.values(data.champion.data);
+					ui.displayChampionsFilter((champions.filter(x=>x.tags.map(tag=>tag).indexOf(selectTags.value)>=0)).filter(y=>y.id.toLowerCase().indexOf(search1.value)>=0),'championsOur')
+				})
+			break;
+		}
+	}else{
+		switch(selectChamps.value){
+		case "1":
+			ui.clear('championsOur');
+			api.getAPIChampion()
+			.then(data=>{
+				const champions=Object.values(data.champion.data);
+				const championsFormLocal=db.getDBformStorage();
+				const championsFilter=champions.filter(championAPI=>
+					championsFormLocal.map(championDB=>
+						championDB.id
+					).indexOf(championAPI.id)<0
+				);
+				ui.displayChampionsFilter(championsFilter.filter(x=>x.id.toLowerCase().indexOf(search1.value)>=0),'championsOur');
+			})
+			break;
+		case "2":
+			ui.clear('championsOur');
+			const champions=db.getDBformStorage();
+			ui.displayChampionsFilter(champions.filter(x=>x.id.toLowerCase().indexOf(search1.value)>=0),'championsOur');
+			break;
+		default:
+			ui.clear('championsOur');
+			api.getAPIChampion()
+				.then(data=>{
+					let champions=Object.values(data.champion.data);
+					ui.displayChampionsFilter(champions.filter(x=>x.id.toLowerCase().indexOf(search1.value)>=0),'championsOur')
+				})
+			break;
+		}
 	}
 }
