@@ -30,7 +30,7 @@ class UI{
 									div.innerHTML=`
 									<div class="my-2">
 										<div class="dark-overlay get-champion" data-id="${x.id}" data-toggle="modal" data-target="#modalChampion">
-											<img src="../img/champion/${x.image.full}" class="img-thubnail img-fluid"/>
+											<img src="./img/champion/${x.image.full}" class="img-thubnail img-fluid"/>
 											<p class="text-center font-weight-bold">${x.id}</p>
 										</div>	
 									</div>		
@@ -54,7 +54,7 @@ class UI{
 									div.innerHTML=`
 									<div class="my-2">
 										<div class="dark-overlay get-champion" data-id="${champion.id}" data-toggle="modal" data-target="#modalChampion">
-											<img src="../img/champion/${champion.image.full}" class="img-thubnail img-fluid"/>
+											<img src="./img/champion/${champion.image.full}" class="img-thubnail img-fluid"/>
 											<p class="text-center font-weight-bold">${champion.name}</p>
 										</div>	
 									</div>		
@@ -77,7 +77,7 @@ class UI{
 									div.innerHTML=`
 									<div class="my-2">
 										<div class="dark-overlay get-champion" data-id="${champion.id}" data-toggle="modal" data-target="#modalChampion">
-											<img src="../img/champion/${champion.image.full}" class="img-thubnail img-fluid"/>
+											<img src="./img/champion/${champion.image.full}" class="img-thubnail img-fluid"/>
 											<p class="text-center font-weight-bold">${champion.name}</p>
 										</div>	
 									</div>		
@@ -96,7 +96,7 @@ class UI{
 									div.innerHTML=`
 									<div class="my-2">
 										<div class="dark-overlay get-champion" data-id="${champion.id}" data-toggle="modal" data-target="#modalChampion">
-											<img src="../img/champion/${champion.image.full}" class="img-thubnail img-fluid"/>
+											<img src="./img/champion/${champion.image.full}" class="img-thubnail img-fluid"/>
 											<p class="text-center font-weight-bold">${champion.name}</p>
 										</div>	
 									</div>		
@@ -114,7 +114,7 @@ class UI{
 					div.innerHTML=`
 									<div class="my-2">
 										<div class="dark-overlay get-champion" data-id="${champion.id}" data-toggle="modal" data-target="#modalChampion">
-											<img src="../img/champion/${champion.image.full}" class="img-thubnail img-fluid"/>
+											<img src="./img/champion/${champion.image.full}" class="img-thubnail img-fluid"/>
 											<p class="text-center font-weight-bold">${champion.id}</p>
 										</div>	
 									</div>		
@@ -139,7 +139,7 @@ class UI{
 									div.innerHTML=`
 									<div class="my-2">
 										<div class="dark-overlay get-champion" data-id="${champion.id}" data-toggle="modal" data-target="#modalChampion">
-											<img src="../img/champion/${champion.image.full}" class="img-thubnail img-fluid"/>
+											<img src="./img/champion/${champion.image.full}" class="img-thubnail img-fluid"/>
 											<p class="text-center font-weight-bold">${champion.id}</p>
 										</div>	
 									</div>		
@@ -243,7 +243,7 @@ class UI{
 									div.innerHTML=`
 									<div class="my-2">
 										<div class="dark-overlay get-champion" data-id="${champion.id}" data-toggle="modal" data-target="#modalChampion">
-											<img src="../img/champion/${champion.image.full}" class="img-thubnail img-fluid"/>
+											<img src="./img/champion/${champion.image.full}" class="img-thubnail img-fluid"/>
 											<p class="text-center font-weight-bold">${champion.id}</p>
 										</div>	
 									</div>		
